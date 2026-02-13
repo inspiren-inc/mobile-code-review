@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Score from './Score';
 import { Score as ScoreType } from './types';
 
@@ -48,39 +49,44 @@ const App: React.FC = () => {
   }
 
   return (
-    <View style={styles.app}>
-      <View style={styles.appHeader}>
-        <Text style={styles.appHeaderTitle}>Score Leaderboard</Text>
-      </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.app}>
+        <View style={styles.appHeader}>
+          <Text style={styles.appHeaderTitle}>Score Leaderboard</Text>
+        </View>
 
-      <View style={styles.appMain}>
-        {error && <Text style={styles.errorMessage}>Error: {error}</Text>}
+        <View style={styles.appMain}>
+          {error && <Text style={styles.errorMessage}>Error: {error}</Text>}
 
-        {scores.length === 0 && !error ? (
-          <Text style={styles.noScores}>No scores available</Text>
-        ) : (
-          <View style={styles.scoresList}>
-            {sortedScores.map((score) => (
-              <Score key={score.id} score={score} />
-            ))}
-          </View>
-        )}
-      </View>
+          {scores.length === 0 && !error ? (
+            <Text style={styles.noScores}>No scores available</Text>
+          ) : (
+            <View style={styles.scoresList}>
+              {sortedScores.map((score) => (
+                <Score key={score.id} score={score} />
+              ))}
+            </View>
+          )}
+        </View>
 
-      <View style={styles.appFooter}>
-        <Text style={styles.appFooterText}>Click refresh to update scores</Text>
+        <View style={styles.appFooter}>
+          <Text style={styles.appFooterText}>
+            Click refresh to update scores
+          </Text>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#f5f5f5',
+    flex: 1
+  },
   app: {
     maxWidth: 800,
-    // margin: "0 auto",
-    padding: 20,
-    backgroundColor: '#f5f5f5'
-    // min-height: 100vh;
+    padding: 20
   },
   loading: {
     textAlign: 'center',
@@ -144,7 +150,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     borderColor: '#e9ecef'
-    // display: "inline-block",
   }
 });
 
