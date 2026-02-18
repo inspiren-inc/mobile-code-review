@@ -9,7 +9,7 @@ interface ScoreProps {
 const Score: React.FC<ScoreProps> = ({ score }) => {
   return (
     <View style={styles.scoreItem}>
-      <Text style={styles.scoreName}>{score.name}</Text>
+      <Text style={styles.scoreName}>{score.userId}</Text>
       <Text style={styles.scoreValue}>{score.score}</Text>
     </View>
   );
@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     borderColor: '#e9ecef',
     borderRadius: 8,
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-    // transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
   scoreName: {
     fontSize: 16,
