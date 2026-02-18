@@ -171,7 +171,7 @@ const App: React.FC = () => {
                 if (activeTab != 'leaderboard') setActiveTab('leaderboard');
               }}
             >
-              Leaderboard
+              <Text>Leaderboard</Text>
             </Pressable>
             <Pressable
               style={[
@@ -182,7 +182,7 @@ const App: React.FC = () => {
                 if (activeTab != 'stats') setActiveTab('stats');
               }}
             >
-              Stats
+              <Text>Stats</Text>
             </Pressable>
           </View>
         </View>
@@ -244,9 +244,9 @@ const styles = StyleSheet.create({
   },
   tabNavigation: {
     display: 'flex',
-    justifyContent: 'center',
     gap: 0,
-    marginBottom: 20
+    marginBottom: 20,
+    flexDirection: 'row'
   },
   tabButton: {
     backgroundColor: '#f8f9fa',
@@ -262,7 +262,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 8,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    marginHorizontal: 2
+    marginHorizontal: 2,
+    flex: 1
   },
   tabButtonHover: {
     backgroundColor: '#e9ecef',
@@ -326,21 +327,14 @@ const styles = StyleSheet.create({
   },
 
   statsContainer: {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20,
-    // padding: 20, 0
     paddingVertical: 20,
-    paddingHorizontal: 0
-    // display: 'flex',
-    // flexDirection: 'row',
-    // gap: 20,
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    // width: '100%',
-    // height: '100%',
+    paddingHorizontal: 0,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
-
   statCard: {
     backgroundColor: '#f8f9fa',
     borderWidth: 1,
@@ -349,9 +343,7 @@ const styles = StyleSheet.create({
     padding: 24,
     textAlign: 'center',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)'
-    // transition: 'transform 0.2s ease, box-shadow 0.2s ease',
   },
-
   statTitle: {
     marginVertical: 12,
     color: '#495057',
@@ -360,24 +352,20 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 0.5
   },
-
   statValue: {
-    // font-size: 2.5rem;
+    fontSize: 36,
     fontWeight: 700,
     color: '#007bff',
     margin: 0
   },
-
   statValueRed: {
     color: '#7e3022'
   },
-
   statsPage: {
     display: 'flex',
     flexDirection: 'column',
     gap: 30
   },
-
   userAveragesSection: {
     backgroundColor: '#f8f9fa',
     borderRadius: 12,
@@ -385,7 +373,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e9ecef'
   },
-
   userAveragesSectionTitle: {
     marginVertical: 20,
     color: '#333',
@@ -393,13 +380,11 @@ const styles = StyleSheet.create({
     fontWeight: 600,
     textAlign: 'center'
   },
-
   userAveragesList: {
     display: 'flex',
     flexDirection: 'column',
     gap: 12
   },
-
   userAverageItem: {
     display: 'flex',
     alignItems: 'center',
@@ -407,54 +392,44 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e9ecef',
     borderRadius: 8,
-
     paddingVertical: 16,
     paddingHorizontal: 20,
     boxShadow: '0 2in 4in rgba(0, 0, 0, 0.05)'
   },
-
   userRank: {
     fontWeight: 700,
     color: '#007bff',
-    // fontSize: 1.1,
+    fontSize: 18,
     minWidth: 40,
     textAlign: 'center'
   },
-
   userInfo: {
     flex: 1,
     marginLeft: 16
   },
-
   userName: {
     fontWeight: 600,
     color: '#333',
-    // fontSize: 1.1rem,
+    fontSize: 18,
     marginBottom: 2
   },
-
   userTitle: {
     fontWeight: 500,
     color: '#007bff',
-    // fontSize: 0.9rem,
+    fontSize: 14,
     marginBottom: 4,
     fontStyle: 'italic'
   },
-
   userDetails: {
-    // font-size: 0.9rem;
+    fontSize: 14,
     color: '#666'
   },
-
   userAverageScore: {
     fontWeight: 700,
     color: '#007bff',
-    // fontSize: 1.2rem,
+    fontSize: 20,
     minWidth: 30,
     textAlign: 'right'
-
-    // color: '#007bff',
-    // minWidth: 60
   }
 });
 
