@@ -24,5 +24,8 @@ Thumbs.db
 # Webpack cache
 .cache/
 
+# Expo
+.expo/
+
 # Interview guide
 INTERVIEW_SCRIPT.md

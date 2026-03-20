@@ -196,8 +196,8 @@ const App: React.FC = () => {
                 <Text style={styles.noScores}>No scores available</Text>
               ) : (
                 <View style={styles.scoresList}>
-                  {sortedScores.map((score) => (
-                    <Score key={score.id} score={score} />
+                  {sortedScores.map((score, index) => (
+                    <Score key={index} score={score} />
                   ))}
                 </View>
               )}
