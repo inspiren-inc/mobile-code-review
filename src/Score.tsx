@@ -1,17 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { Score as ScoreType } from './types';
 
 interface ScoreProps {
   score: ScoreType;
+  onPress?: () => void;
 }
 
-const Score: React.FC<ScoreProps> = ({ score }) => {
+const Score: React.FC<ScoreProps> = ({ score, onPress }) => {
   return (
-    <View style={styles.scoreItem}>
-      <Text style={styles.scoreName}>{score.name}</Text>
+    <Pressable onPress={onPress} style={styles.scoreItem}>
+      <Text style={styles.scoreName}>{score.userId}</Text>
       <Text style={styles.scoreValue}>{score.score}</Text>
-    </View>
+    </Pressable>
   );
 };
 

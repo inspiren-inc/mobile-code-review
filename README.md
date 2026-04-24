@@ -7,6 +7,8 @@ A React Native application that displays scores fetched from an API endpoint.
 - Fetches scores from `/scores` endpoint on page load
 - Displays scores in a clean, modern interface
 - Scores are automatically sorted by score (highest to lowest)
+- Auto-polling every 2 seconds for live updates
+- Stats tab with average scores and per-user breakdowns
 - Error handling for API failures
 - Loading states
 
@@ -34,14 +36,26 @@ npm start
 
 ## API Requirements
 
-The application expects a `/scores` endpoint that returns an array of score objects with the following structure:
+The application expects two endpoints:
 
+### `/scores`
+Returns an array of score objects:
 ```typescript
 {
   id: string;
-  name: string;
+  userId: string;
   score: number;
   updated: Date;
+}
+```
+
+### `/users`
+Returns an array of user objects:
+```typescript
+{
+  id: string;
+  username: string;
+  title: string;
 }
 ```
 
@@ -64,7 +78,8 @@ src/
 - Scores are automatically sorted by score (highest to lowest)
 
 ### Data Fetching
-- Fetches scores once when the component mounts
+- Fetches scores and users when the component mounts
+- Auto-polls every 2 seconds for live updates
 - Error handling with user-friendly messages
 - Loading states during initial fetch
 
